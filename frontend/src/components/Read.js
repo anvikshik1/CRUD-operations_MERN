@@ -1,5 +1,6 @@
 import React, { useEffect,useState } from 'react'
 import { Link } from 'react-router-dom';
+import '../App';
 
 function Read() {
   const [error,setError] = useState();
@@ -41,16 +42,16 @@ function Read() {
   return (
     <div className='container my-2'>
     {error && <div className="alert alert-danger">{error}</div>}
-      <h2 className='text-center'>All data</h2>
+      <h2 className='text-center text-light'>All Data</h2>
       <div className='row'>
       {data?.map((data,index) =>{
         return(
-          <div className='col-3 mb-4' key={index}>
-            <div className="card">
+          <div className='col-3 mb-4 mt-5' key={index}>
+            <div className="card boxes">
               <div className="card-body">
-                <h5 className="card-title">{data.name}</h5>
-                <h6 className="card-subtitle mb-2 text-muted">{data.email}</h6>
-                <p className="card-text">{data.age}</p>
+                <h5 className="card-title text-light">{data.name}</h5>
+                <h6 className="card-subtitle mb-2 text-light">{data.email}</h6>
+                <p className="card-text text-light">{data.age}</p>
                 <button type="button" class="btn btn-danger me-2" onClick={() => handleDelete(data._id)}>Delete</button>
                  <Link class="btn btn-primary" to={`/${data._id}`}> Edit</Link> 
               </div>
